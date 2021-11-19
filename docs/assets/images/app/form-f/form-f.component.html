@@ -1,0 +1,78 @@
+<form (submit)="addSubject()">
+    <div >
+        <label><input type="radio" name="type" [(ngModel)]="type" value="libre"/>Libre</label>
+        <label><input type="radio" name="type" [(ngModel)]="type" value="guide"/>Guidé</label>
+    </div>
+    <table>
+        <tr>
+            <td><label>Author Name</label></td>
+            <td><input type="text" name="authorName" [(ngModel)]="authorName"/></td>
+        </tr>
+        <tr>
+            <td><label>Title</label></td>
+            <td><input type="text" name="title" [(ngModel)]="title"/></td>
+        </tr>
+        <tr>
+            <td><label>Container</label></td>
+            <td><textarea cols="30" row="10" name="container" [(ngModel)]="container"></textarea></td>
+        </tr>
+        <tr>
+            <td><label>Theme</label></td>
+            <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select [(value)]="theme">
+                            <mat-option>None</mat-option>
+                            <mat-option value="Informatique">Informatique</mat-option>
+                            <mat-option value="Science">Science</mat-option>
+                            <mat-option value="Animes">Animes</mat-option>
+                            <mat-option value="Autres">Autres</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+              </td>
+        </tr>
+        
+        <div *ngIf="theme === 'Autres'">
+            <tr>
+                <td><label>Autres</label></td>
+                <td><input type="text" name="autres" [(ngModel)]="autres"/></td>
+            </tr>
+        </div>
+        <div *ngIf="type === 'guide'">
+            <tr>
+                <td><label>Type of answers :</label></td>
+                <td>
+                    <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="normal"/>Normal Answers</label>
+                    <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="yn"/>Yes & No Answers</label>
+                    <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="custm"/>Customized Answers</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Duration :</label></td>
+                <td><input type="number" name="duree" [(ngModel)]="duree"/></td>
+            </tr>
+        </div>
+    </table>
+    <button mat-raised-button color="accent">Submit</button>
+</form>
+
+<div>
+    <table>
+        <div *ngFor="let Subject of Subjects; let i = index;">
+            <tr>
+                <td><mat-icon>face</mat-icon></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>{{ Subject.author }}</td>
+                <td><a mat-button href="LetsDebate">{{ Subject.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Type: {{Subject.type}}</td>
+                <td>                 
+                    <p>You selected theme: {{Subject.theme}}</p>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
