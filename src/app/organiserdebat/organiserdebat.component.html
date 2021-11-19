@@ -1,0 +1,112 @@
+<div class="contact-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contactheading">
+                    <h3>Animer votre débat</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section -->
+<section class="layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full comment_form">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <form (submit)="addSubject()"
+                                style="width: -webkit-fill-available; font-weight:600; color: #0f0824">
+                                <label>Type du débat : </label>
+                                <div>
+                                    <input type="radio" name="type" [(ngModel)]="type" value="libre"
+                                        style="width: 12%;height: 12px;" />
+                                    <label for="libre">Libre</label>
+                                    <input type="radio" name="type" [(ngModel)]="type" value="guide"
+                                        style="width: 12%;height: 12px;" />
+                                    <label for="guide">Guidé</label>
+                                </div>
+                                <div>
+                                    <label>Thème :</label>
+                                    <select [(ngModel)]="theme">
+                                        <option *ngFor="let item of themesList" [ngValue]="item">{{item}}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="theme === 'Autres'">
+                                    <div>
+                                        <label>Autres</label>
+                                        <input type="text" name="autres" [(ngModel)]="autres" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Nom d'utilisateur :</label>
+                                    <input type="text" name="authorName" [(ngModel)]="authorName"
+                                        placeholder="Entrez un nom d'utilisateur" />
+                                </div>
+                                <div>
+                                    <label>Titre du débat :</label>
+                                    <input type="text" name="title" [(ngModel)]="title"
+                                        placeholder="Entrez le titre du débat" />
+                                </div>
+                                <div>
+                                    <label>Sujet :</label>
+                                    <textarea cols="30" row="10" name="container" [(ngModel)]="container"
+                                        placeholder="..."></textarea>
+                                </div>
+                                <div *ngIf="type === 'guide'">
+                                    <label>Type de réponses :</label>
+                                    <div>
+                                        <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="normal"
+                                                style="width: 12%;height: 12px;    width: 216px;" />Commentaires</label>
+                                        <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="yn"
+                                                style="width: 12%;height: 12px;    width: 216px;" />Oui & Non</label>
+                                        <label><input type="radio" name="typeRep" [(ngModel)]="typeRep" value="custm"
+                                                style="width: 12%;height: 12px;    width: 216px;" />Personnalisé</label>
+
+                                    </div>
+                                    <div>
+                                        <label>Duration en minutes:</label>
+                                        <input type="number" name="duree" [(ngModel)]="duree" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="row margin_top_30">
+                        <div class="col-md-12">
+                            <div class="center">
+                                <button (click)="addSubject()">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 
+
+<div>
+    <table>
+        <div *ngFor="let Subject of Subjects; let i = index;">
+            <div>
+                <mat-icon>face</mat-icon>
+                
+            </div>
+            <div>
+                {{ Subject.author }}
+                <a mat-button href="LetsDebate">{{ Subject.title }}</a>
+            </div>
+            <div>
+                Type: {{Subject.type}}
+                                 
+                    <p>You selected theme: {{Subject.theme}}</p>
+                
+            </div>
+        </div>
+    </table>
+</div> -->

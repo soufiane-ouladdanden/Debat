@@ -1,0 +1,49 @@
+<section class="layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading" style="padding-left: 15px;padding-right: 15px;">
+          <h4 style="border-bottom: solid #333 1px;">Créer un nouveau vote</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full comment_form">
+          <form [formGroup]="VoteForm" (ngSubmit)="onSubmitQuestion()">
+            <p>
+              <input type="text" id="name" name="name" formControlName="question" class="form-control"
+                placeholder="Ajouter votre question ici ">
+            </p>
+            <table class="table table-bordered" formArrayName="answers">
+              <tr>
+                <th width="150px"><button type="button" (click)="addAnswers()" class="btn btn-primary"
+                    style="background-color: #595f62; width: 800px; margin-left: 167px;font-size: 19px;">Ajouter vos réponses personnalisées en cliquant ici</button></th>
+              </tr>
+              <tr *ngFor="let quantity of answers().controls; let i=index" [formGroupName]="i">
+                <td>
+                  <input type="text" formControlName="answer" class="form-control"
+                    placeholder="Ajouter une réponse ici">
+                </td>
+
+                <td>
+                  <button (click)="removeAnswers(i)" style="    border-radius: 15px;
+                  width: 169px;
+                  height: 40px;
+                  margin-top: 22px;
+                  margin-left: 13px;    background-color: #595f62;"><i class="fa fa-trash" aria-hidden="true"></i> supprimer</button>
+                </td>
+              </tr>
+            </table>
+            <div class="row margin_top_30">
+              <div class="col-md-12">
+                <div class="center">
+                  <button type="submit">Publier</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

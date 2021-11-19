@@ -1,0 +1,38 @@
+.online
+{
+  position: fixed;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+.test
+{
+  position: absolute;
+  transform: translate(50%,50%);
+  padding-top: 5%;
+  display: flex;
+  padding-right: 35%;
+  margin-left: 25%;
+}
+.test li
+{
+    list-style: none;
+    color: #146325;
+    font-size: 20px;
+    letter-spacing: normal;
+    animation: flash 1.4s linear infinite;
+    padding-right: 20%;
+}
+@keyframes flash{
+    0% {
+         color: #146325;
+         text-shadow: none;
+       }
+    90% {
+         color: #146325;
+         text-shadow: none;
+    }
+    100% {
+          color: #fff900;
+          text-shadow: 0 0 7px #fff900, 0 0 50px #fff900;
+    }
+}

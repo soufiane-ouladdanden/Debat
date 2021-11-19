@@ -1,0 +1,36 @@
+<div class="contact-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contactheading">
+                    <h3>Tous les débats</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full comment_form">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="card" style="width: 18rem;" *ngFor="let item of Debats">
+                                <img src="../../assets/images/comments.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.title }}</h5>
+                                    <p class="card-text">{{ item.author }}</p>
+                                    <p>theme: {{item.theme}}</p>
+                                    <p class="card-text">Date: {{item.date?.toDate() | date:'short'}}</p>
+                                    <a href="debatlibre/{{item.id}}"
+                                        class="btn btn-primary stretched-link">Consulter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
